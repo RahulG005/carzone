@@ -410,22 +410,7 @@
         ]
     }
 },
-{
-    "model": "socialaccount.socialapp",
-    "pk": 2,
-    "fields": {
-        "provider": "google",
-        "name": "Google login",
-        "client_id": "644117718694-jvv7inp9sict960t09rpp41ctnpd329n.apps.googleusercontent.com",
-        "secret": "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",
-        "key": "",
-        "sites": [
-            [
-                "localhost:8000"
-            ]
-        ]
-    }
-},
+
 {
     "model": "socialaccount.socialaccount",
     "pk": 1,
