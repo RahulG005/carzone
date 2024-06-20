@@ -98,7 +98,7 @@ class Car(models.Model):
     city = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
-    year = models.IntegerField( ('year'), choices = year_choice)
+    year = models.IntegerField(choices = year_choice)
     condition = models.CharField(max_length=100)
     price = models.IntegerField()
     description = RichTextField()
