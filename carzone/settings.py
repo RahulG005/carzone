@@ -26,7 +26,7 @@ SECRET_KEY = '!9uf1mu%1p3y&oqz5#9!k9-1#0bj=4gj(=)6_sl%v-p=#@!q6x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['serene-springs-62458-0abb09029d72.herokuapp.com']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
