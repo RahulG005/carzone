@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!9uf1mu%1p3y&oqz5#9!k9-1#0bj=4gj(=)6_sl%v-p=#@!q6x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['serene-springs-62458.herokuapp.com']
+ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
@@ -90,18 +90,18 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'carzone_db',
-#        'USER': 'postgres',
-#        'PASSWORD': 'root',
-#        'HOST': 'localhost',
-#
-#    }
-#}
+DATABASES = {
+       'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'carzone_db',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
 
-DATABASES = {'default': dj_database_url.config(default='postgres://postgres:root@localhost:5432/carzone_db')}
+    }
+}
+
+#DATABASES = {'default': dj_database_url.config(default='postgres://postgres:root@localhost:5432/carzone_db')}
 
 
 # Password validation

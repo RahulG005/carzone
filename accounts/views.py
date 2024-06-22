@@ -40,7 +40,7 @@ def register(request):
                     messages.error(request,'Email already exists')
                     return redirect('register')
                 else:
-                    user = User.objects.create_user(firstname=firstname, lastname=lastname, username=username, password=password)
+                    user = User.objects.create_user(first_name=firstname, last_name=lastname, username=username, password=password)
                     auth.login(request, user)
                     messages.success(request,'you are now logged in.')
                     return redirect('dashboard')
