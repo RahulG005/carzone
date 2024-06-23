@@ -21,12 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!9uf1mu%1p3y&oqz5#9!k9-1#0bj=4gj(=)6_sl%v-p=#@!q6x'
+#SECRET_KEY = '!9uf1mu%1p3y&oqz5#9!k9-1#0bj=4gj(=)6_sl%v-p=#@!q6x'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","False").lower() == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
@@ -100,9 +101,8 @@ DATABASES = {
 
     }
 }
-
-#DATABASES = {'default': dj_database_url.config(default='postgres://postgres:root@localhost:5432/carzone_db')}
-
+database_url = os.environ.get("DATABASE_URL")
+DATABASES['default']=dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
