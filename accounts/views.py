@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from contacts.models import Contact
 from django.contrib.auth.decorators import login_required
@@ -11,10 +12,10 @@ def login(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = auth.authenticate(username=username, password=password)
+        user = authenticate(username=username, password=password)
 
         if user is not None:
-            auth.login(request,user)
+            login(request,user)
             return redirect('dashboard')
         else:
             messages.error(request, 'Invalid login credentials')
@@ -41,7 +42,7 @@ def register(request):
                     return redirect('register')
                 else:
                     user = User.objects.create_user(first_name=firstname, last_name=lastname, username=username, password=password)
-                    auth.login(request, user)
+                    login(request, user)
                     messages.success(request,'you are now logged in.')
                     return redirect('dashboard')
                     user.save()
@@ -64,6 +65,6 @@ def dashboard(request):
 
 def logout(request):
     if request.method == "POST":
-        auth.logout(request)
+        logout(request)
         return redirect('home')
     return redirect('home')
